@@ -24,13 +24,23 @@ receiving2(T, w1, V) :- town(T), shipping(T, f1, V).
 receiving1(T, e1, V) :- town(T), shipping(T, w1, V).
 receiving2(T, e1, V) :- town(T), shipping(T, w2, V).
 
-shipping(T, D, V) :- town(T), factory(D), #int(V),
+shipping(T, D, 1) :- town(T), factory(D),
+  #int(V),
   #int(In1),
   #int(In2),
   receiving1(T, D, In1),
   receiving2(T, D, In2),
   +(In1, In2, V),
-  V != 2.
+  V = 1.
+
+shipping(T, D, 0) :- town(T), factory(D),
+  #int(V),
+  #int(In1),
+  #int(In2),
+  receiving1(T, D, In1),
+  receiving2(T, D, In2),
+  +(In1, In2, V),
+  V <> 1.
 
 shipping(T, D, 1) :- town(T), warehouse(D),
   #int(In1),

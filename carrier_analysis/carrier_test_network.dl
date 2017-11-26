@@ -1,0 +1,6 @@
+UNCOMPUTED_c1(T,V) :- expect_c1(T,V), not c1(T,V).
+UNCOMPUTED_c2(T,V) :- expect_c2(T,V), not c2(T,V).
+UNEXPECTED_c1(T,V) :- c1(T,V), not expect_c1(T,V).
+UNEXPECTED_c2(T,V) :- c2(T,V), not expect_c2(T,V).
+DUPLICATED_c1(T,X,Y) :- c1(T,X), c1(T,Y), X < Y.
+DUPLICATED_c2(T,X,Y) :- c2(T,X), c2(T,Y), X < Y.
