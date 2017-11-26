@@ -1,0 +1,13 @@
+%:- matching(I, A), matching(J, A), I <> J.      % eliminate number duplicates
+
+%same relative order
+:- matching(I, A), matching(J, B),
+   pattern(I, X), pattern(J, Y),
+   A > B,
+   X <= Y.
+
+%subsequence property
+:- matching(I, A), matching(J, B),
+   text(M, A), text(N, B),
+   I > J,
+   M <= N.

@@ -1,0 +1,3 @@
+matching(I, N) v -matching(I, N) :- pattern(I, _), text(_, N).
+:- matching(I, A), matching(I, B), A <> B.      % eliminate index duplicates
+:- #count{ I : matching(I, A)} < N, size(N).    % retain only sets with N matches
