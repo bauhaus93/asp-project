@@ -1,6 +1,4 @@
+
 shipping(t1, w1, 1).
 shipping(t1, w2, 0).
-
-shipping(t2, f1, 0).
-
-shipping(t2, w2, 0).
+shipping(t1, e1, 0).

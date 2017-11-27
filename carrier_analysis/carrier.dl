@@ -82,7 +82,7 @@ shipping(T, D, 0) :- town(T), exporter(D),
   In2 = 0,
   not ab(T, D).
 
-c1(T, V) :- town(T), shipping(T, f2, V).
-c2(T, V) :- town(T), shipping(T, e1, V).
+c1(T, V) :- town(T), shipping(T, f2, V), not ab(T, f2).
+c2(T, V) :- town(T), shipping(T, e1, V), not ab(T, e1).
 
 s3(T, V) :- supplies(T2, T), c2(T2, V).
