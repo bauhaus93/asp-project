@@ -1,5 +1,6 @@
-shipping(t1, e1, 1).
-shipping(t2, f1, 0).
 
-shipping(t2, w1, 0).
-shipping(t2, w2, 0).
+receiving1(t2, f2, 1).
+receiving2(t2, f2, 0).
+
+receiving1(t2, e1, 0).
+receiving2(t2, e1, 0).
