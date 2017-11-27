@@ -9,20 +9,20 @@ warehouse(w1).
 warehouse(w2).
 exporter(e1).
 
-receiving1(T, f1, V) :- town(T), s1(T, V).
-receiving2(T, f1, V) :- town(T), s2(T, V).
+receiving1(T, f1, V) :- town(T), s1(T, V), not ab(T, f1).
+receiving2(T, f1, V) :- town(T), s2(T, V), not ab(T, f1).
 
-receiving1(T, w2, V) :- town(T), s1(T, V).
-receiving2(T, w2, V) :- town(T), s2(T, V).
+receiving1(T, w2, V) :- town(T), s1(T, V), not ab(T, w2).
+receiving2(T, w2, V) :- town(T), s2(T, V), not ab(T, w2).
 
-receiving1(T, f2, V) :- town(T), s3(T, V).
-receiving2(T, f2, V) :- town(T), shipping(T, f1, V).
+receiving1(T, f2, V) :- town(T), s3(T, V), not ab(T, f2).
+receiving2(T, f2, V) :- town(T), shipping(T, f1, V), not ab(T, f2).
 
-receiving1(T, w1, V) :- town(T), s3(T, V).
-receiving2(T, w1, V) :- town(T), shipping(T, f1, V).
+receiving1(T, w1, V) :- town(T), s3(T, V), not ab(T, w1).
+receiving2(T, w1, V) :- town(T), shipping(T, f1, V), not ab(T, w1).
 
-receiving1(T, e1, V) :- town(T), shipping(T, w1, V).
-receiving2(T, e1, V) :- town(T), shipping(T, w2, V).
+receiving1(T, e1, V) :- town(T), shipping(T, w1, V), not ab(T, e1).
+receiving2(T, e1, V) :- town(T), shipping(T, w2, V), not ab(T, e1).
 
 shipping(T, D, 1) :- town(T), factory(D),
   #int(V),
@@ -31,7 +31,8 @@ shipping(T, D, 1) :- town(T), factory(D),
   receiving1(T, D, In1),
   receiving2(T, D, In2),
   +(In1, In2, V),
-  V = 1.
+  V = 1,
+  not ab(T, D).
 
 shipping(T, D, 0) :- town(T), factory(D),
   #int(V),
@@ -40,7 +41,8 @@ shipping(T, D, 0) :- town(T), factory(D),
   receiving1(T, D, In1),
   receiving2(T, D, In2),
   +(In1, In2, V),
-  V <> 1.
+  V <> 1,
+  not ab(T, D).
 
 shipping(T, D, 1) :- town(T), warehouse(D),
   #int(In1),
@@ -48,7 +50,8 @@ shipping(T, D, 1) :- town(T), warehouse(D),
   receiving1(T, D, In1),
   receiving2(T, D, In2),
   In1 = 1,
-  In2 = 1.
+  In2 = 1,
+  not ab(T, D).
 
 shipping(T, D, 0) :- town(T), warehouse(D),
   #int(V),
@@ -57,7 +60,8 @@ shipping(T, D, 0) :- town(T), warehouse(D),
   receiving1(T, D, In1),
   receiving2(T, D, In2),
   +(In1, In2, V),
-  V != 2.
+  V != 2,
+  not ab(T, D).
 
 shipping(T, D, 1) :- town(T), exporter(D),
   #int(V),
@@ -66,7 +70,8 @@ shipping(T, D, 1) :- town(T), exporter(D),
   receiving1(T, D, In1),
   receiving2(T, D, In2),
   +(In1, In2, V),
-  V != 0.
+  V != 0,
+  not ab(T, D).
 
 shipping(T, D, 0) :- town(T), exporter(D),
   #int(In1),
@@ -74,7 +79,8 @@ shipping(T, D, 0) :- town(T), exporter(D),
   receiving1(T, D, In1),
   receiving2(T, D, In2),
   In1 = 0,
-  In2 = 0.
+  In2 = 0,
+  not ab(T, D).
 
 c1(T, V) :- town(T), shipping(T, f2, V).
 c2(T, V) :- town(T), shipping(T, e1, V).
