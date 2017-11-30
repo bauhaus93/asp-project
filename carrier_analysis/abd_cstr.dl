@@ -1,3 +1,2 @@
 
 :- ok(T, D), short(T, D).
-:- ok(T, D), ab(T, D).

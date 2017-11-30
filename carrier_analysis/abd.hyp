@@ -1,17 +1,17 @@
-ab(t1, f1).
-ab(t1, f2).
-ab(t1, w1).
-ab(t1, w2).
-ab(t1, e1).
-
-ab(t2, f1).
-ab(t2, f2).
-ab(t2, w1).
-ab(t2, w2).
-ab(t2, e1).
-
+ok(t1, f1).
+ok(t1, f2).
 ok(t1, w1).
 ok(t1, w2).
+ok(t1, e1).
 
+ok(t2, f1).
+ok(t2, f2).
+ok(t2, e1).
 ok(t2, w1).
 ok(t2, w2).
+
+short(t1, w1).
+short(t1, w2).
+
+short(t2, w1).
+short(t2, w2).
