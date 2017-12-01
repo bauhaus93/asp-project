@@ -6,9 +6,9 @@ ok(t1, e1).
 
 ok(t2, f1).
 ok(t2, f2).
-ok(t2, e1).
 ok(t2, w1).
 ok(t2, w2).
+ok(t2, e1).
 
 short(t1, w1).
 short(t1, w2).
