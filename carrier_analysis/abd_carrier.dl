@@ -92,7 +92,7 @@ shipping(T, D, 1) :- town(T), exporter(D),
   receiving2(T, D, In2),
   +(In1, In2, V),
   V != 0,
-  ok(T, D).
+  not ab(T, D).
 
 shipping(T, D, 0) :- town(T), exporter(D),
   #int(In1),
