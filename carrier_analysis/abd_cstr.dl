@@ -1,4 +1,3 @@
 
 :- ok(T, D), short(T, D).
-:- town(T), factory(D), not ok(T, D).
-:- town(T), exporter(D), not ok(T, D).
+:- ok(T, D), ab(T, D).
