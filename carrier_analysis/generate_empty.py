@@ -3,7 +3,7 @@
 import random
 import subprocess
 
-towns = ["t1", "t1"]
+towns = ["t1", "t2"]
 depositories = ["f1", "f2", "w1", "w2", "e1"]
 predicates = ["receiving1", "receiving2", "shipping"]
 

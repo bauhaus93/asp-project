@@ -57,20 +57,20 @@ def calc_town(s1, s2, s3, ok_w1 = 1, ok_w2 = 1, silent = True):
         print "output:", f2, e1
     return (f2, e1)
 
-for a in range(0, 2):
-    for b in range(0, 2):
-        for c in range(0, 2):
-            for d in range(0, 2):
-                (t1_c1, t1_c2) = calc_town(1, 0, 1, ok_w1 = a, ok_w2 = b)
-                (t2_c1, t2_c2) = calc_town(0, 0, t1_c2, ok_w1 = c, ok_w2 = d)
-                if t1_c1 == 0 and t2_c1 == 0 and t2_c2 == 1:
-                    print "found result"
-                    print "t1: w1(%s), w2(%s)" % (ok_str(a), ok_str(b))
-                    print "t2: w1(%s), w2(%s)" % (ok_str(c), ok_str(d))
+#for a in range(0, 2):
+#    for b in range(0, 2):
+#        for c in range(0, 2):
+#            for d in range(0, 2):
+#                (t1_c1, t1_c2) = calc_town(1, 0, 1, ok_w1 = a, ok_w2 = b)
+#                (t2_c1, t2_c2) = calc_town(0, 0, t1_c2, ok_w1 = c, ok_w2 = d)
+#                if t1_c1 == 0 and t2_c1 == 0 and t2_c2 == 1:
+#                    print "found result"
+#                    print "t1: w1(%s), w2(%s)" % (ok_str(a), ok_str(b))
+#                    print "t2: w1(%s), w2(%s)" % (ok_str(c), ok_str(d))
 
 
-(t1_c1, t1_c2) = calc_town(1, 0, 1, ok_w1 = 0, ok_w2 = 1, silent = False)
-(t2_c1, t2_c2) = calc_town(0, 0, t1_c2, ok_w1 = 1, ok_w2 = 0, silent = False)
+(t1_c1, t1_c2) = calc_town(1, 1, 1)
+(t2_c1, t2_c2) = calc_town(1, 0, t1_c2)
 print "outputs:"
 print t1_c1, t1_c2
 print t2_c1, t2_c2
